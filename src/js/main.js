@@ -14,4 +14,10 @@ const getDate = new Date();
 const  today = getDate.toLocaleDateString();
 
 const headerName = document.getElementById("todayTodo");
+
 headerName.textContent = `${today} 할 일`;
+
+// 이벤트
+document.querySelector('.add-button').addEventListener('click', function() {
+    document.createElement('loop-tr');  
+});

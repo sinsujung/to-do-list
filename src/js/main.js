@@ -6,8 +6,7 @@
  * 4. 할 일 완료 버튼 o
  * 5. 할 일 삭제 버튼 o
  * 6. 완료 버튼 클릭 시 선으로 긋기 o
- * 7. 완료된 목록은 아래로 가도록 하기
- * 8. 할 일 수정 버튼
+ * 7. 할 일 수정 버튼 o
  */
 
 const getDate = new Date();
@@ -29,12 +28,22 @@ window.onload = function(){
         const txt_todoList = document.createTextNode(todoList);
         const todoLists = document.createElement("li");
         const completeButtons = document.createElement("button");
+        const updateButtons = document.createElement("button");
         const deleteButtons = document.createElement("button");
-    
+        var completeState = false;
+
         // 완료 버튼 이벤트 & 스타일
         completeButtons.addEventListener('click', () => {
+            if(completeState == false) {
+            completeState = true;
             todoLists.style.textDecoration = "line-through"
             completeButtons.textContent = "완료됨"
+            }
+            else if(completeState == true) {
+                completeState = false;
+                todoLists.style.textDecoration = "none"
+                completeButtons.textContent = "완료"
+            }
         });
 
         todoLists.style.marginTop = '10px';
@@ -48,9 +57,20 @@ window.onload = function(){
         deleteButtons.textContent = "삭제";
         deleteButtons.style.marginLeft = "3px";
 
-
+        // 수정 버튼 이벤트 & 스타일
+        updateButtons.addEventListener('click', () => {
+            let updateTodo = prompt("변경할 내용을 입력해주세요.");
+            todoLists.textContent = updateTodo;
+            todoLists.appendChild(completeButtons);
+            todoLists.appendChild(updateButtons);
+            todoLists.appendChild(deleteButtons);
+        });
+        updateButtons.textContent = "수정";
+        updateButtons.style.marginLeft = "3px";
+        // li에 내용 및 버튼 추가
         todoLists.appendChild(txt_todoList);
         todoLists.appendChild(completeButtons);
+        todoLists.appendChild(updateButtons);
         todoLists.appendChild(deleteButtons);
 
         document.getElementById("addTodo").appendChild(todoLists);

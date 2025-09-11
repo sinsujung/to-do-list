@@ -33,6 +33,7 @@ window.onload = function(){
             todoLists.style.textDecoration = "line-through"
             this.textContent = "완료됨"
         });
+        todoLists.style.marginTop = '10px';
         completeButtons.style.marginLeft = '10px';
         completeButtons.textContent="완료";
 

@@ -1,16 +1,18 @@
 .outline {
     display: flex;
-    /* align-items: center; 세로 정렬 */
     justify-content: center;  /*가로 정렬*/
 }
-.todo_header {
+
+#add-line{
+    top: 400px;
+    margin-top: 10px;
+    position: fixed;
 }
-.input-box {
+#input-box {
     height: 30px;
-    width: 250px;
-    margin-top: 40px;
+    width: 300px;
 }
-.add-button{
+#add-button{
     height: 35px;
     width: 35px;
 }
